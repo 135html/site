@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-<title>
-новий сайт
-</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата за інформацію</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<h1 style="position: relative;text-align: center;"><big>Добро я тут пожаловать</big></h1>
-<hr>
-<h2 style="position: relative;text-align: center;"><big>Ну ви ж знаете шо ростик лох</big></h2>
-<br>
-<h3 style="position: relative;text-align: center;"><big>HTML</big></h3>
-<p style="position: relative; left: 3%;width: 95%;"><big><big>HTML (англ. HyperText Markup Language — мова розмітки гіпертексту) — це мова тегів, засобами якої здійснюється розмічання вебсторінок для мережі Інтернет. Браузери отримують HTML-документи з вебсервера або з локальної пам'яті й передають документи в мультимедійні вебсторінки. HTML описує структуру вебсторінки семантично і спочатку включені сигнали для зовнішнього вигляду документа.<br><br>
-
-Елементи HTML є будівельними блоками сторінок HTML. За допомогою конструкцій HTML, зображення та інші об'єкти, такі як інтерактивні форми, можуть бути вбудовані у візуалізовану сторінку. HTML надає засоби для створення структурованих документів, позначаючи структурну семантику тексту, наприклад заголовки, абзаци, списки, посилання, цитати та інші елементи. Елементи HTML окреслені тегами, написаними з використанням кутових дужок. Теги, такі як і безпосередньо вводять вміст на сторінку. Інші теги, такі як< img /> < input /> < p >оточують і надають інформацію про текст документа і можуть включати інші теги як піделементи. Браузери не показують теги HTML, але використовують їх для інтерпретації вмісту сторінки.<br><br>
-
-HTML може вбудовувати програми, написані на мові сценаріїв, наприклад JavaScript, що впливає на поведінку та вміст вебсторінок. Включення CSS визначає вигляд і компонування вмісту. World Wide Web Consortium (W3C), який супроводжує стандарти HTML та CSS, заохочує використання CSS над явним презентаційним HTML з 1997 року.[1]<br><br>
-
-HTML впроваджує засоби для:[1]
-
-створення структурованого документа шляхом позначення структурного складу тексту: заголовки, абзаци, списки, таблиці, цитати та інше;
-отримання інформації із Всесвітньої мережі через гіперпосилання;
-створення інтерактивних форм;
-включення зображень, звуку, відео, та інших об'єктів до тексту.</big></p>
-<img style="position: relative;width: 250px;height: 250px; left: 43%;" src="img/img1.png">
-<br>
-<a style="position: relative;left: 3%;" href="https://uk.wikipedia.org/wiki/HTML">Википедия</a>
+    <h1>Доступ до інформації</h1>
+    <p>Оплатіть 50 гривень, щоб отримати доступ до важливої інформації.</p>
+    <form method="POST" action="https://www.liqpay.ua/api/3/checkout" target="_blank">
+        <input type="hidden" name="data" value="ВАШІ_ДАНІ">
+        <input type="hidden" name="signature" value="ВАШ_ПІДПИС">
+        <button type="submit">Оплатити 50 грн</button>
+    </form>
+    <div id="info" class="info hidden">
+        <p>Дякуємо за оплату! Ось ваша інформація:</p>
+        <p>Секретна інформація: Ви отримали доступ!</p>
+    </div>
+    <script>
+        // Симуляція успішної оплати
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            setTimeout(() => {
+                document.getElementById("info").classList.remove("hidden");
+            }, 3000); // Затримка для імітації завершення платежу
+        });
+    </script>
 </body>
 </html>
